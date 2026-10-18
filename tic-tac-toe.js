@@ -18,3 +18,14 @@ window.onload = function() {
         });
     });
 };
+
+
+        square.addEventListener("mouseover", function() {
+            if (gameState[index] === "") {
+                square.classList.add("hover");
+            }
+        });
+
+        square.addEventListener("mouseout", function() {
+            square.classList.remove("hover");
+        });
