@@ -34,3 +34,24 @@ window.onload = function() {
             }
         }
     }
+
+    
+    const newGameBtn = document.querySelector(".btn");
+    const defaultMessage = "Move your mouse over a square and click to play an X or an O.";
+
+
+    newGameBtn.addEventListener("click", function() {
+        gameState = ["", "", "", "", "", "", "", "", ""];
+        currentPlayer = "X";
+        gameOver = false;
+
+        squares.forEach(function(square) {
+            square.textContent = "";
+            square.classList.remove("X");
+            square.classList.remove("O");
+            square.classList.remove("hover");
+        });
+
+        document.getElementById("status").textContent = defaultMessage;
+        document.getElementById("status").classList.remove("you-won");
+    });
