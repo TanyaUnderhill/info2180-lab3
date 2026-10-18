@@ -19,13 +19,18 @@ window.onload = function() {
     });
 };
 
+     function checkWinner() {
+        for (let i = 0; i < winningCombos.length; i++) {
+            const [a, b, c] = winningCombos[i];
+            
+            // If the three squares match and are not empty
+            if (gameState[a] !== "" && gameState[a] === gameState[b] && gameState[a] === gameState[c]) {
 
-        square.addEventListener("mouseover", function() {
-            if (gameState[index] === "") {
-                square.classList.add("hover");
+                statusDiv.textContent = "Congratulations! " + gameState[a] + " is the Winner!";
+
+                statusDiv.classList.add("you-won");
+                gameOver = true;
+                return; // Stop checking
             }
-        });
-
-        square.addEventListener("mouseout", function() {
-            square.classList.remove("hover");
-        });
+        }
+    }
